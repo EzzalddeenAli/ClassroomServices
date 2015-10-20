@@ -3,7 +3,7 @@
   <display-name>UPS/</display-name>
   <context-param>
     <param-name>contextInitializerClasses</param-name>
-    <param-value>com.abharana.services.web.ProfilesActivationApplicationInitializer</param-value>
+    <param-value>com.classroom.services.web.ProfilesActivationApplicationInitializer</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

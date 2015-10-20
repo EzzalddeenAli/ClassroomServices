@@ -26,7 +26,7 @@
 
 	<bean
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-		p:packagesToScan="com.abharana.services.domain.model" p:jpaVendorAdapter-ref="hibernateVendor"
+		p:packagesToScan="com.classroom.services.domain.model" p:jpaVendorAdapter-ref="hibernateVendor"
 		p:dataSource-ref="ds" p:jpaPropertyMap-ref="jpaPropertyMap" />
 
 

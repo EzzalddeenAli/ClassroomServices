@@ -20,8 +20,8 @@
 		<tx:annotation-driven transaction-manager="transactionManager" />
 		<context:annotation-config />
 	    <!-- Temporal test data for UI Integration -->
-		<bean id="testDataBootstrap" class="com.abharana.services.util.TestDataBootstrap" />
-		<bean id="testDataBootstrapRunner" class="com.abharana.services.util.TestDataBootstrapRunner" />
+		<bean id="testDataBootstrap" class="com.classroom.services.util.TestDataBootstrap" />
+		<bean id="testDataBootstrapRunner" class="com.classroom.services.util.TestDataBootstrapRunner" />
 	</beans>
 
 </beans>

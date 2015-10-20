@@ -25,10 +25,10 @@
 
 	<context:annotation-config />
 
-	<context:component-scan base-package="com.abharana.services.web.controllers,com.abharana.services.facade.*,com.abharana.services.infrastructure.persistence.hibernate,com.abharana.services.web.security.*" />
-	<!--context:component-scan base-package="com.abharana.services.facade.*" />
-	<context:component-scan base-package="com.abharana.services.infrastructure.persistence.hibernate" />
-	<context:component-scan base-package="com.abharana.services.web.security.*" /-->
+	<context:component-scan base-package="com.classroom.services.web.controllers,com.classroom.services.facade.*,com.classroom.services.infrastructure.persistence.hibernate,com.classroom.services.web.security.*" />
+	<!--context:component-scan base-package="com.classroom.services.facade.*" />
+	<context:component-scan base-package="com.classroom.services.infrastructure.persistence.hibernate" />
+	<context:component-scan base-package="com.classroom.services.web.security.*" /-->
 
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="false">
@@ -40,7 +40,7 @@
 <!-- bean name="jsonConverter"
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<property name="objectMapper">
-			<bean class="com.abharana.services.web.dto.mappers.JsonMapper" />
+			<bean class="com.classroom.services.web.dto.mappers.JsonMapper" />
 		</property>
 	</bean>
 

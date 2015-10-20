@@ -3,13 +3,13 @@
  * 
  * @author rbanking
  */
-package com.abharana.services.infrastructure.persistence.hibernate;
+package com.classroom.services.infrastructure.persistence.hibernate;
 
 import org.springframework.stereotype.Repository;
 
-import com.abharana.services.domain.model.TransferSeries;
-import com.abharana.services.domain.repositories.ITransferSeriesRepository;
-import com.abharana.services.domain.repositories.criteria.TransferSearchCriteria;
+import com.classroom.services.domain.model.TransferSeries;
+import com.classroom.services.domain.repositories.ITransferSeriesRepository;
+import com.classroom.services.domain.repositories.criteria.TransferSearchCriteria;
 
 @Repository
 public class TransferSeriesRepository extends

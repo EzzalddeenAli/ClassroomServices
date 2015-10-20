@@ -30,12 +30,12 @@
 	</sec:http>
 
 	<bean id="expressionHandler"
-		class="com.abharana.services.web.security.permissions.expression.MethodSecurityExpressionHandler">
+		class="com.classroom.services.web.security.permissions.expression.MethodSecurityExpressionHandler">
 		<property name="permissionEvaluator" ref="permissionEvaluator" />
 	</bean>
 
 	<bean id="permissionEvaluator"
-		class="com.abharana.services.web.security.permissions.PermissionEvaluator"></bean>
+		class="com.classroom.services.web.security.permissions.PermissionEvaluator"></bean>
 	<bean id="forbiddenEntryPoint"
 		class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
 
@@ -44,12 +44,12 @@
 		<sec:authentication-provider ref="daoAuthenticationProvider" />
 	</sec:authentication-manager>
 
-	<bean id="daoAuthenticationProvider" class="com.abharana.services.web.security.RESTDaoAuthenticationProvider">
+	<bean id="daoAuthenticationProvider" class="com.classroom.services.web.security.RESTDaoAuthenticationProvider">
 		<property name="userSecurityService" ref="userSecurityServiceImpl" />
 	</bean>
 
 	<bean id="passwordEncoder"
-		class="com.abharana.services.web.security.authentication.algorithms.HMacShaPasswordEncoder">
+		class="com.classroom.services.web.security.authentication.algorithms.HMacShaPasswordEncoder">
 		<constructor-arg name="strength" value="256" />
 		<constructor-arg name="encodeHashAsBase64" value="true" />
 	</bean>
@@ -57,14 +57,14 @@
 	<bean name="jsonConverter"
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<property name="objectMapper">
-			<bean class="com.abharana.services.web.dto.mappers.JsonMapper" />
+			<bean class="com.classroom.services.web.dto.mappers.JsonMapper" />
 		</property>
 	</bean>
 
 	<bean name="jaxbConverter"
 		class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"></bean>
 
-	<bean id="restAuthenticationFilter" class="com.abharana.services.web.security.http.RESTAuthenticationFilter">
+	<bean id="restAuthenticationFilter" class="com.classroom.services.web.security.http.RESTAuthenticationFilter">
 		<constructor-arg name="defaultFilterProcessesUrl"
 			value="/" />
 		<property name="authenticationManager" ref="defaultAuthenticationManager" />
@@ -76,13 +76,13 @@
 			<bean
 				class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
 				<property name="redirectStrategy">
-					<bean class="com.abharana.services.web.security.http.NoRedirectStrategy" />
+					<bean class="com.classroom.services.web.security.http.NoRedirectStrategy" />
 				</property>
 			</bean>
 		</property>
 		<property name="authenticationFailureHandler">
 			<bean
-				class="com.abharana.services.web.security.http.RestAuthenticationFailureHandler">
+				class="com.classroom.services.web.security.http.RestAuthenticationFailureHandler">
 				<property name="messageConverters">
 					<list>
 						<ref bean="jsonConverter" />
@@ -95,7 +95,7 @@
 
 	<!-- SSO via OAuth 1.0 -->
 
-	<bean id="standardOAuthFilters" class="com.abharana.services.web.security.http.sso.SSOCompositeFilter">
+	<bean id="standardOAuthFilters" class="com.classroom.services.web.security.http.sso.SSOCompositeFilter">
 		<property name="filters">
 			<list>
 				<ref bean="oauthConsumerContextFilter" />
