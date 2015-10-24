@@ -407,10 +407,6 @@ public class Students extends AbstractEntity<Integer>{
 
 	public void setIsDeleted(Integer isDeleted) {
 		this.isDeleted = isDeleted;
-	}
-
-	
-
-	
+	}	
 	
 }
