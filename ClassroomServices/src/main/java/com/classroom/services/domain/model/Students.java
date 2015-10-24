@@ -1,7 +1,5 @@
 package com.classroom.services.domain.model;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +10,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.LocalDateTime;
-
-import com.classroom.services.domain.model.User;
 
 @Entity
 @Table(name="students")
