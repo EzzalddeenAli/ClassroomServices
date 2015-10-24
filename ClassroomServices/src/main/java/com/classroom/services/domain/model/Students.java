@@ -1,7 +1,5 @@
 package com.classroom.services.domain.model;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -411,10 +409,6 @@ public class Students extends AbstractEntity<Integer>{
 
 	public void setIsDeleted(Integer isDeleted) {
 		this.isDeleted = isDeleted;
-	}
-
-	
-
-	
+	}	
 	
 }

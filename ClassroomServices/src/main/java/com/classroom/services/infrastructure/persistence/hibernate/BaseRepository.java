@@ -397,6 +397,7 @@ public abstract class BaseRepository<T extends AbstractEntity, E extends BaseSea
     protected List<T> getResultList(CriteriaQuery<T> q) {
         List<T> list;
         try {
+        	System.out.println("query "+q);
             list = getEntityManager().createQuery(q).getResultList();
         } catch (NoResultException e) {
             list = null;
