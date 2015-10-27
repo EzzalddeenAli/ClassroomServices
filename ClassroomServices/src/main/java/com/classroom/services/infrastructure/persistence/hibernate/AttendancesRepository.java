@@ -40,7 +40,7 @@ public class AttendancesRepository extends BaseRepository<Attendances,BaseSearch
 	        if(searchDTO.getBatchId() != 0){
 	        	predicates[j++] = getCriteriaBuilder().equal(from.get("batchId"),searchDTO.getBatchId());      		
 	        }
-	        if(count > 2){
+	        if(count > j){
 	        	predicates[j] = getCriteriaBuilder().equal(from.get("monthDate"),searchDTO.getMonthDate());
 	        }
 	        query.where(predicates);

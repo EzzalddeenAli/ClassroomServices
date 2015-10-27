@@ -90,11 +90,14 @@ public class AttendancesController {
      * Gets the Homework based n search.
      * 
      * example :  {
-		"studentId" : 1,
-		"batchId" : 1,
-		"monthDate" : "2015.10.28 00:00"
-		}
-     *           
+				"studentId" : 1,
+				"batchId" : 1,
+				"monthDate" : "2015.10.29 00:00",
+				"count" : 3
+				}
+     *    
+     *  for student id and batch id if search not required pass 0 and if search on month date not required , 
+     *  			remove that field from json and count will be 2.
      * @return the Homework based n search
      */
     @RequestMapping(value = "/search", method = RequestMethod.POST)
