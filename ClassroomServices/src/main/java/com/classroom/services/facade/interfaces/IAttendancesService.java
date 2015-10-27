@@ -6,15 +6,16 @@ import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.classroom.services.facade.dto.entities.AttendancesListDTO;
+import com.classroom.services.facade.dto.entities.AttendancesSearchDTO;
 import com.classroom.services.facade.dto.entities.CircularsDTO;
 import com.classroom.services.facade.dto.entities.HomeworkDTO;
 import com.classroom.services.facade.dto.entities.HomeworkListDTO;
 
 
-public interface IHomeworkService {
-
-	HomeworkListDTO getHomework(Integer batchId,Integer courseId);
-	void addHomework(HomeworkDTO homeworkDTO);
-	void updateHomework(HomeworkDTO homeworkDTO);
-	HomeworkListDTO getHomeworkSearch(LocalDateTime startTime);
+public interface IAttendancesService {
+	
+	void addAttendance(AttendancesListDTO attendancedto);
+	void updateAttendance(AttendancesListDTO attendancedto);
+	AttendancesListDTO getAttendance(AttendancesSearchDTO searchDTO);
 }

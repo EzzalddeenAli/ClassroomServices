@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.classroom.services.facade.dto.entities.CircularSearchDTO;
+import com.classroom.services.facade.dto.entities.CircularsDTO;
 import com.classroom.services.facade.dto.entities.HomeworkDTO;
 import com.classroom.services.facade.dto.entities.HomeworkListDTO;
+import com.classroom.services.facade.dto.entities.HomeworkSearchDTO;
 import com.classroom.services.facade.interfaces.IHomeworkService;
 
 
@@ -82,6 +85,27 @@ public class HomeworkController {
         return homeworkdto;
     }
     
+    /**
+     * Gets the Homework based n search.
+     * 
+     * @param id
+     *           
+     * @return the Homework based n search
+     */
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ResponseBody
+    public HomeworkListDTO getHomeworkSearch(@RequestBody HomeworkSearchDTO searchDTO) {
+    	HomeworkListDTO dto = null;
+        try {
+        	System.out.println("here .. ");
+        	System.out.println(searchDTO.getStartDate());
+            dto = service.getHomeworkSearch(searchDTO.getStartDate());
+        } catch (Exception e) {
+            LOG.error("Error");
+            System.out.println(e.getMessage());
+        }
+        return dto;
+    }
 
     
 }

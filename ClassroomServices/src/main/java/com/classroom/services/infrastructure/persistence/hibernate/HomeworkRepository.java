@@ -16,6 +16,7 @@ import javax.persistence.criteria.Root;
 import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Repository;
 
+import com.classroom.services.domain.model.Circulars;
 import com.classroom.services.domain.model.Homework;
 import com.classroom.services.domain.model.User;
 import com.classroom.services.domain.model.repositories.IHomeworkRepository;
@@ -61,6 +62,30 @@ public class HomeworkRepository extends BaseRepository<Homework,BaseSearchCriter
             }
         }
         return getHomework;
+    }
+    
+    public List<Homework> getHomeworkSearch(LocalDateTime startTime){
+        List<Homework> homework = null;
+        CriteriaQuery<Homework> query = getCriteriaBuilder()
+                .createQuery(Homework.class);
+        Root<Homework> from = query.from(Homework.class);
+        Predicate[] predicates = new Predicate[1];
+        predicates[0] = getCriteriaBuilder().equal(from.get("startTime"),
+        		startTime);
+        query.where(predicates);
+        query.select(from);
+        System.out.println("before query");
+        homework = getResultList(query);
+        System.out.println("homework size "+ homework.size());
+        //Homework getHomework = new Homework();
+        List<Homework> homeworks = new ArrayList<Homework>();
+        if (homework.size() >= 1) {
+            for (Integer i = 0; i < homework.size(); i++) {	               
+            	homeworks.add(homework.get(i));
+
+            }
+        }
+        return homeworks;
     }
 
 }
