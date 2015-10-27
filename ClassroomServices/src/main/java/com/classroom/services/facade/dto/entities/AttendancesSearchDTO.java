@@ -15,8 +15,19 @@ public class AttendancesSearchDTO{
     private LocalDateTime monthDate;
     private Integer studentId;
     private Integer batchId;
+    private Integer count;
     
-    @XmlJavaTypeAdapter(value = LocalDateTimeAdapter.class)
+    public Integer getCount() {
+		return count;
+	}
+
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+
+	@XmlJavaTypeAdapter(value = LocalDateTimeAdapter.class)
 	public LocalDateTime getMonthDate() {
     	System.out.println("he " + monthDate);
 		return monthDate;

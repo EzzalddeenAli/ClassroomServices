@@ -29,22 +29,31 @@ public class AttendancesRepository extends BaseRepository<Attendances,BaseSearch
         CriteriaQuery<Attendances> query = getCriteriaBuilder()
                 .createQuery(Attendances.class);
         Root<Attendances> from = query.from(Attendances.class);
-        Predicate[] predicates = new Predicate[3];
-        predicates[0] = getCriteriaBuilder().equal(from.get("monthDate"),searchDTO.getMonthDate());
-        predicates[1] = getCriteriaBuilder().equal(from.get("studentId"),searchDTO.getStudentId());
-        predicates[2] = getCriteriaBuilder().equal(from.get("batchId"),searchDTO.getBatchId());
-        query.where(predicates);
-        query.select(from);
-        System.out.println("before query");
-        attendance = getResultList(query);
-        System.out.println("attendances size "+ attendance.size());
-        
         List<Attendances> attendances = new ArrayList<Attendances>();
-        if (attendance.size() >= 1) {
-            for (Integer i = 0; i < attendance.size(); i++) {	               
-            	attendances.add(attendance.get(i));
-
-            }
+        Integer count = searchDTO.getCount();
+        if(count != 0){
+	        Predicate[] predicates = new Predicate[count];
+	        Integer j = 0;
+	        if(searchDTO.getStudentId() != 0){
+	        	predicates[j++] = getCriteriaBuilder().equal(from.get("studentId"),searchDTO.getStudentId());       		
+	        }
+	        if(searchDTO.getBatchId() != 0){
+	        	predicates[j++] = getCriteriaBuilder().equal(from.get("batchId"),searchDTO.getBatchId());      		
+	        }
+	        if(count > 2){
+	        	predicates[j] = getCriteriaBuilder().equal(from.get("monthDate"),searchDTO.getMonthDate());
+	        }
+	        query.where(predicates);
+	        query.select(from);
+	        System.out.println("before query");
+	        attendance = getResultList(query);
+	        System.out.println("attendances size "+ attendance.size());
+	        if (attendance.size() >= 1) {
+	            for (Integer i = 0; i < attendance.size(); i++) {	               
+	            	attendances.add(attendance.get(i));
+	
+	            }
+	        }
         }
         return attendances;
     }
