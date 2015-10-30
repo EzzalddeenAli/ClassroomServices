@@ -6,11 +6,14 @@ import org.joda.time.LocalDateTime;
 
 import com.classroom.services.domain.model.Circulars;
 import com.classroom.services.domain.model.repositories.criteria.CircularsSearchCriteria;
+import com.classroom.services.facade.dto.entities.CircularSearchDTO;
 
 
 public interface ICircularsRepository extends IBaseRepository<Circulars>{
 
-	List<Circulars> getCircular(LocalDateTime startDate);
+	List<Circulars> getCircular(CircularSearchDTO searchDTO);
+
+	//List<Circulars> getCircular(LocalDateTime startDate);
 
 	//List<Circulars> get(LocalDateTime startDate);
 

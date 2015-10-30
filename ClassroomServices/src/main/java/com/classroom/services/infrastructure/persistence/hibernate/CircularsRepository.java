@@ -13,18 +13,23 @@ import org.springframework.stereotype.Repository;
 import com.classroom.services.domain.model.Circulars;
 import com.classroom.services.domain.model.repositories.ICircularsRepository;
 import com.classroom.services.domain.model.repositories.criteria.CircularsSearchCriteria;
+import com.classroom.services.facade.dto.entities.CircularDTO;
+import com.classroom.services.facade.dto.entities.CircularSearchDTO;
 
 @Repository
 public class CircularsRepository extends BaseRepository<Circulars, CircularsSearchCriteria> implements ICircularsRepository{
 	
-	public List<Circulars> getCircular(LocalDateTime startDate) {
+	public List<Circulars> getCircular(CircularSearchDTO searchDTO) {
 	        List<Circulars> circular = null;
 	        javax.persistence.criteria.CriteriaQuery<Circulars> query = getCriteriaBuilder()
 	                .createQuery(Circulars.class);
 	        Root<Circulars> from = query.from(Circulars.class);
-	        Predicate[] predicates = new Predicate[1];
+	        Predicate[] predicates = new Predicate[2];
 	        predicates[0] = getCriteriaBuilder().equal(from.get("startDate"),
-	        		startDate);
+	        		searchDTO.getStartDate());
+
+	        predicates[1] = getCriteriaBuilder().equal(from.get("isExam"),
+	        		searchDTO.getIsExam());
 	        query.where(predicates);
 	        query.select(from);
 	        System.out.println("before query");
@@ -40,6 +45,6 @@ public class CircularsRepository extends BaseRepository<Circulars, CircularsSear
 	        }
 	        return circulars;
 	    }
- 
-    
+
+	    
 }

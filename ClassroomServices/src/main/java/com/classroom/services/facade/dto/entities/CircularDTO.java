@@ -21,6 +21,18 @@ public class CircularDTO extends AbstractDTO<Integer>{
     private boolean isExam;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    
+    private String errorCode;
+
+    public String getErrorCode() {
+		return errorCode;
+	}
+
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
+	}
+	
+	
 	public Integer getId() {
 		return id;
 	}

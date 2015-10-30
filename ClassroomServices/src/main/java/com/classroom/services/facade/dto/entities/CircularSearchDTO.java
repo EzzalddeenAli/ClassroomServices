@@ -13,6 +13,8 @@ public class CircularSearchDTO{
 
 	
     private LocalDateTime startDate;
+    private boolean isExam;
+    private Integer id;
     
 	/**
      * Gets the startDate.
@@ -28,4 +30,21 @@ public class CircularSearchDTO{
 	public void setStartDate(LocalDateTime startDate) {
 		this.startDate = startDate;
 	}
+
+	public boolean getIsExam() {
+		return isExam;
+	}
+
+	public void setIsExam(boolean isExam) {
+		this.isExam = isExam;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 }

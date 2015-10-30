@@ -1,12 +1,12 @@
 package com.classroom.services.facade.interfaces;
 
-import org.joda.time.LocalDateTime;
-
+import com.classroom.services.facade.dto.entities.CircularDTO;
+import com.classroom.services.facade.dto.entities.CircularSearchDTO;
 import com.classroom.services.facade.dto.entities.CircularsDTO;
 
 
 public interface ICircularsService {
 
-	CircularsDTO getCircularDetails(LocalDateTime startDate);
-
+	void updateCircular(CircularDTO circularDTO);
+	CircularsDTO getCircularDetails(CircularSearchDTO searchDTO);
 }
