@@ -39,15 +39,9 @@ public class ExamResultsDBService implements IExamResultsService{
 	}
 	
 	public ExamMarksDTO getExamMarks(Integer examId) {
-		 System.out.println(" getExamMarksDTO examId !! "+examId);
-		 //Exams examResultsDomains = examMarksRepository.get(examId);//getExamMarks(examId);
-		 ExamResults examResultsDomain = examResultsRepository.getExamResultDetails(examId);
-		 System.out.println(" getExamMarksDTO examId 2222 !! "+examId);
 		 ExamMarksDTO examMarksDTO = new ExamMarksDTO();
-		 ExamResultsDTO examResultsDTO = new ExamResultsDTO(); 
-		 System.out.println(" getExamMarksDTO examId 1111 !! "+examId);
-		// ExamResultsAssembler.Object2DTOMarks(examResultsDomains, examMarksDTO);
-		 ExamResultsAssembler.Object2DTO(examResultsDomain, examResultsDTO);
+		 Exams examResultsDomain = examMarksRepository.getExamMarks(examId);
+		 ExamResultsAssembler.Object2DTOMarks(examResultsDomain, examMarksDTO);
 	     return examMarksDTO;
 		
 	}
