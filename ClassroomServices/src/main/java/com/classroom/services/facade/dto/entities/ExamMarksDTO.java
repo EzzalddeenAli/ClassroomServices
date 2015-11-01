@@ -9,7 +9,7 @@ import org.joda.time.LocalDateTime;
 
 
 
-@XmlRootElement(name="examresults")
+@XmlRootElement(name="exams")
 public class ExamMarksDTO extends AbstractDTO<Integer>{
 
 	private Integer id;
@@ -69,10 +69,4 @@ public class ExamMarksDTO extends AbstractDTO<Integer>{
 	public void setEventId(Integer eventId) {
 		this.eventId = eventId;
 	}
-
-	
-    
-	
-	
-    
 }

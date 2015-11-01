@@ -37,7 +37,9 @@ public class ExamResultsController {
     public ExamResultsDTO getExamResultDetails(@PathVariable Integer studentId) {
     	ExamResultsDTO dto = null;
         try {
+        	 System.out.println(" controller 11 studentId !! "+studentId);
             dto = service.getExamResultDetails(studentId);
+            System.out.println(" controller 22 studentId !! "+studentId);
         } catch (Exception e) {
             LOG.error("Error");
             System.out.println(e.getMessage());
