@@ -27,6 +27,7 @@ public class ExamResultsDBService implements IExamResultsService{
 	
 	 @Autowired
 	 private IExamResultsRepository examResultsRepository;
+	 @Autowired
 	 private IExamMarksRepository examMarksRepository;
 	
 	
@@ -40,7 +41,9 @@ public class ExamResultsDBService implements IExamResultsService{
 	
 	public ExamMarksDTO getExamMarks(Integer examId) {
 		 ExamMarksDTO examMarksDTO = new ExamMarksDTO();
+		 System.out.println("examId 111 "+examId);
 		 Exams examResultsDomain = examMarksRepository.getExamMarks(examId);
+		 System.out.println("examId 222 "+examId);
 		 ExamResultsAssembler.Object2DTOMarks(examResultsDomain, examMarksDTO);
 	     return examMarksDTO;
 		
