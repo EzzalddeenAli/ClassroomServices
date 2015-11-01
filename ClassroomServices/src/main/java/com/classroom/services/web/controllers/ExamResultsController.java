@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.classroom.services.facade.dto.entities.ExamMarksDTO;
+import com.classroom.services.facade.dto.entities.ExamMarksListDTO;
 import com.classroom.services.facade.dto.entities.ExamResultsDTO;
 
 import com.classroom.services.facade.interfaces.IExamResultsService;
@@ -49,10 +50,10 @@ public class ExamResultsController {
     
     @RequestMapping(value = "/marks/{examId}", method = RequestMethod.GET)
     @ResponseBody
-    public ExamMarksDTO getExamMarks(@PathVariable Integer examId) {
-    	ExamMarksDTO dto = null;
+    public ExamMarksListDTO getExamMarks(@PathVariable Integer examId) {
+    	ExamMarksListDTO dto = null;
         try {
-        	 System.out.println("examId !! "+examId);
+        	System.out.println("examId !! "+examId);
             dto = service.getExamMarks(examId);
             System.out.println("after examId !! "+examId);
         } catch (Exception e) {

@@ -12,5 +12,5 @@ import ch.qos.logback.core.net.SyslogOutputStream;
 
 public interface IExamMarksRepository extends IBaseRepository<Exams>{
 	
-	Exams getExamMarks(Integer examId);
+	List<Exams> getExamMarks(Integer examId);
 }
