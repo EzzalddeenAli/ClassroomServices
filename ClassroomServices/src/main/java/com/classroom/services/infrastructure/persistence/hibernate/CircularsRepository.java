@@ -11,8 +11,10 @@ import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Repository;
 
 import com.classroom.services.domain.model.Circulars;
+import com.classroom.services.domain.model.CircularsBatch;
 import com.classroom.services.domain.model.repositories.ICircularsRepository;
 import com.classroom.services.domain.model.repositories.criteria.CircularsSearchCriteria;
+import com.classroom.services.facade.dto.entities.CircularBatchSearchDTO;
 import com.classroom.services.facade.dto.entities.CircularDTO;
 import com.classroom.services.facade.dto.entities.CircularSearchDTO;
 
@@ -46,5 +48,4 @@ public class CircularsRepository extends BaseRepository<Circulars, CircularsSear
 	        return circulars;
 	    }
 
-	    
 }

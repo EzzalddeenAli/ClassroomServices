@@ -11,15 +11,10 @@ import com.classroom.services.facade.dto.entities.CircularBatchSearchDTO;
 import com.classroom.services.facade.dto.entities.CircularSearchDTO;
 
 
-public interface ICircularsRepository extends IBaseRepository<Circulars>{
+public interface ICircularsBatchRepository extends IBaseRepository<CircularsBatch>{
 
-	List<Circulars> getCircular(CircularSearchDTO searchDTO);
+	//List<Circulars> getCircular(CircularSearchDTO searchDTO);
 	
-	//List<CircularsBatch> getCircularBatch(CircularBatchSearchDTO searchDTO);
+	List<CircularsBatch> getCircularBatch(CircularBatchSearchDTO searchDTO);
 
-	//List<Circulars> getCircular(LocalDateTime startDate);
-
-	//List<Circulars> get(LocalDateTime startDate);
-
-	//List<Circulars> getCircularsDetails(CircularsSearchCriteria criteria);
 }

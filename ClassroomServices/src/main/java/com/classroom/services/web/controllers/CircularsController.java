@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.classroom.services.facade.dto.entities.CircularBatchDTO;
+import com.classroom.services.facade.dto.entities.CircularBatchSearchDTO;
 import com.classroom.services.facade.dto.entities.CircularDTO;
 import com.classroom.services.facade.dto.entities.CircularSearchDTO;
+import com.classroom.services.facade.dto.entities.CircularsBatchDTO;
 import com.classroom.services.facade.dto.entities.CircularsDTO;
 import com.classroom.services.facade.dto.entities.HomeworkDTO;
 import com.classroom.services.facade.interfaces.ICircularsService;
@@ -64,6 +67,27 @@ public class CircularsController {
             System.out.println(e.getMessage());
         }
         return dto;
+    } /**
+     * Gets the Circular details.
+     * 
+     * @param id
+     *           
+     * @return the Circular details
+     */
+    @RequestMapping(value = "/searchBatch", method = RequestMethod.POST)
+    @ResponseBody
+    public CircularsBatchDTO getCircularDetails(@RequestBody CircularBatchSearchDTO searchDTO) {
+    	CircularsBatchDTO dto = null;
+        try {
+        	//System.out.println("here .. ");
+        	//System.out.println(searchDTO.getStartDate());
+            dto = service.getCircularBatchDetails(searchDTO);
+        } catch (Exception e) {
+            LOG.error("Error");
+            System.out.println(e.getMessage());
+        }
+        return dto;
     }
 	
+    
 }
