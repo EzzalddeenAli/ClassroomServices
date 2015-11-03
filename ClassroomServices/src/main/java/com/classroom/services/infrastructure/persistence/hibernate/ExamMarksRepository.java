@@ -15,6 +15,7 @@ import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Repository;
 
 import com.classroom.services.domain.model.Exams;
+import com.classroom.services.domain.model.Homework;
 import com.classroom.services.domain.model.repositories.IBaseRepository;
 import com.classroom.services.domain.model.repositories.IExamMarksRepository;
 import com.classroom.services.domain.model.repositories.IExamResultsRepository;
@@ -26,21 +27,26 @@ import com.classroom.services.domain.model.repositories.criteria.ExamResultsSear
 @Repository
 public class ExamMarksRepository extends BaseRepository<Exams, BaseSearchCriteria> implements IExamMarksRepository{
 	
-	public Exams getExamMarks(Integer examId) {
+	public List<Exams> getExamMarks(Integer examId) {
 	System.out.println("query !! "+examId);
-	Exams examMarks = null;
+	List<Exams> examMarks = null;
     CriteriaQuery<Exams> query = getCriteriaBuilder().createQuery(
     		Exams.class);
     Root<Exams> from = query.from(Exams.class);
     Predicate[] predicates = new Predicate[1];
-    predicates[0] = getCriteriaBuilder().equal(from.get("id"),
+    predicates[0] = getCriteriaBuilder().equal(from.get("examGroupId"),
     		examId);
     query.where(predicates);
     query.select(from);
     System.out.println("query !! "+query);
-    examMarks = getSingleResult(query);
-
-    return examMarks;
+    examMarks = getResultList(query);
+    List<Exams> getExamMarks = new ArrayList<Exams>();
+    if (examMarks.size() >= 1) {
+        for (Integer i = 0; i < examMarks.size(); i++) {
+        	getExamMarks.add(examMarks.get(i));
+        }
+    }
+    return getExamMarks;
 	}
     
 }
